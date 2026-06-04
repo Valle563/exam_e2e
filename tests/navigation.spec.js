@@ -26,3 +26,5 @@ test.describe("Navigering", () => {
     await expect(page.getByText("Listan har")).toBeVisible();
   });
 });
+
+// test för katalogknappen.
