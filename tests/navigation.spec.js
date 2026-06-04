@@ -25,6 +25,15 @@ test.describe("Navigering", () => {
     await page.click("text=Statistik");
     await expect(page.getByText("Listan har")).toBeVisible();
   });
+
+  test("kan navigera tillbaka till katalog från Statistik", async ({
+    page,
+  }) => {
+    await page.goto(URL);
+    await page.getByRole("button", { name: "Statistik" }).click();
+    await page.getByRole("button", { name: "Katalog" }).click();
+    await expect(page.getByText("Ormar på ett plan")).toBeVisible();
+  });
 });
 
 // test för katalogknappen.
