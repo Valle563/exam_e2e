@@ -28,4 +28,16 @@ test.describe("Mina böcker", () => {
     await expect(page.getByText("Ormar på ett plan")).toBeVisible();
     await expect(page.getByText("The Pragmatic Procrastinator")).toBeVisible();
   });
+
+  test("kan av-favoritmarkera en bok", async ({ page }) => {
+    await page.goto(URL);
+    await page.click(
+      '[data-testid="star-Ormar på ett plan: En Python-berättelse"]',
+    );
+    await page.click(
+      '[data-testid="star-Ormar på ett plan: En Python-berättelse"]',
+    );
+    await page.click("text=Mina böcker");
+    await expect(page.getByText("Ormar på ett plan")).not.toBeVisible();
+  });
 });
